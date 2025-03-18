@@ -8,11 +8,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = defineConfig({
   //强制编译依赖模块
-  transpileDependencies: true,
+  // transpileDependencies: true,
   //开启环境的sourceMap还原混淆压缩代码至源代码
-  productionSourceMap: true,
+  // productionSourceMap: true,
   //基本URL
-  publicPath: '/scda-spider',
+  publicPath: process.env.APP_BASE_API,
   //build后输入文件夹
   outputDir: 'dist',
   //静态文件夹目录
@@ -26,6 +26,16 @@ module.exports = defineConfig({
   },
 
   chainWebpack: (config) => {
+
+    if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test') {
+      // 开启代码压缩
+      config.optimization.minimize(true);
+    }
+    else if(process.env.NODE_ENV === 'development') {
+      // 开启 Source Map
+      config.devtool('source-map');
+    }
+
     config.resolve.alias
       .set('@', resolve('src'))
     
@@ -85,12 +95,11 @@ module.exports = defineConfig({
       .plugin('html') // 定位到默认的 html-webpack-plugin 插件
       .tap((args) => {
         // 自定义插件选项
-        args[0] = {
-          ...args[0],
-          title: 'scda', // 设置 HTML 页面标题
-          template: './public/index.html', // 指定模板路径
-          inject: true, // 自动注入资源（如 CSS/JS）
-        };
+        args[0].title = process.env.APP_TITLE
+        args[0].meta = { description: process.env.APP_DESCRIPTION }
+        args[0].template = './public/index.html'
+        args[0].inject = true
+        args[0].favicon = './public/favicon.ico'
         return args;
       });
 
