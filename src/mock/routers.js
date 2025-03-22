@@ -13,19 +13,19 @@ export default [
         children: [
             {
                 //样本
-                path: '/sample',
+                path: 'sample',
                 name: 'sample',
                 component: () => import('@/views/sampleAndInstance/sample'),
             },
             {
                 //实例
-                path: '/instance',
+                path: 'instance',
                 name: 'instance',
                 component: () => import('@/views/sampleAndInstance/instance'),
             },
             {
                 //步骤
-                path: '/step',
+                path: 'step',
                 name: 'step',
                 component: () => import('@/views/sampleAndInstance/step'),
             }
@@ -38,31 +38,31 @@ export default [
         children: [
             {
                 //BiliBili
-                path: '/bilibili',
+                path: 'bilibili',
                 name: 'bilibili',
                 component: () => import('@/views/instanceData/bilibili'),
                 children: [
                     {
                         //视频
-                        path: '/video',
+                        path: 'video',
                         name: 'video',
                         component: () => import('@/views/instanceData/bilibili/video'),
                     },
                     {
                         //评论
-                        path: '/comment',
+                        path: 'comment',
                         name: 'comment',
                         component: () => import('@/views/instanceData/bilibili/comment'),
                     },
                     {
                         //弹幕
-                        path: '/danmu',
+                        path: 'danmu',
                         name: 'danmu',
                         component: () => import('@/views/instanceData/bilibili/danmu'),
                     },
                     {
                         //用户
-                        path: '/user',
+                        path: 'user',
                         name: 'user',
                         component: () => import('@/views/instanceData/bilibili/user'),
                     },
@@ -99,5 +99,15 @@ export default [
         path: '/notificationLog',
         name: 'notificationLog',
         component: () => import('@/views/notificationLog'),
-    }
+    },
+    {
+        //登录
+        path: '/login',
+        name: 'login',
+        component: () => import('@/views/login'),
+    },
+    {
+        path: '/',
+        component: () => import('@/views/login'),
+    },
 ]
