@@ -34,7 +34,7 @@ export default [
     {
         //实例数据
         path: '/instanceData',
-        component: () => import('@/views/instanceData/indxe.vue'),
+        component: () => import('@/views/instanceData/index.vue'),
         children: [
             {
                 //BiliBili

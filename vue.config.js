@@ -49,21 +49,22 @@ module.exports = defineConfig({
             .set('@', resolve('src'))
 
 
-        config.module
-            .rule('scss') // 定义规则名称
-            .test(/\.scss$/) // 匹配 .scss 文件
-            .use('style-loader') // 添加 style-loader
-            .loader('style-loader')
-            .end()
-            .use('css-loader') // 添加 css-loader
-            .loader('css-loader')
-            .options({
-                importLoaders: 1,
-                modules: true, // 如果需要 CSS Modules，可以设为 true
-            })
-            .end()
-            .use('sass-loader') // 添加 sass-loader
-            .loader('sass-loader');
+        // config.module
+        //     .rule('scss') // 定义规则名称
+        //     .test(/\.scss$/) // 匹配 .scss 文件
+        //     .use('style-loader') // 添加 style-loader
+        //     .loader('style-loader')
+        //     .end()
+        //     .use('css-loader') // 添加 css-loader
+        //     .loader('css-loader')
+        //     .options({
+        //         importLoaders: 1,
+        //         modules: true, // 如果需要 CSS Modules，可以设为 true
+        //     })
+        //     .end()
+        //     .use('sass-loader') // 添加 sass-loader
+        //     .loader('sass-loader')
+        //     .end();
 
         config.module
             .rule('babel') // 定义规则名称为 'babel'
@@ -76,7 +77,7 @@ module.exports = defineConfig({
                 // 传递给 babel-loader 的选项
                 presets: ['@babel/preset-env'], // 添加 Babel 预设
                 plugins: ['@babel/plugin-transform-runtime'], // 添加 Babel 插件
-            })
+            });
 
         config.module
             .rule('images') // 定义规则
