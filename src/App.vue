@@ -1,8 +1,8 @@
 <template>
     <div id="app">
-        <HelloWorld msg="Welcome to Your Vue.js App" />
         <router-view />
-        <!-- <router-view /> -->
+        <router-link to="/dashboard">Go to Dashboard</router-link>
+        <router-link to="/login">Go to Login</router-link>
     </div>
 </template>
 
