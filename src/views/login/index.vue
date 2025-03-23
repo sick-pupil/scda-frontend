@@ -75,6 +75,11 @@
             <el-button>注册</el-button>
           </el-col>
         </el-row>
+        <el-row>
+          <el-col>
+            <el-button type="primary">注册</el-button>
+          </el-col>
+        </el-row>
       </div>
     </el-form>
   </div>
