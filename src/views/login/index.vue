@@ -56,6 +56,15 @@
             <el-link target="_blank">忘记密码</el-link>
           </el-col>
         </el-row>
+        <el-row class="captcha-input-block">
+          <el-col :span="24">
+            <el-input class="captcha-input-block-input" placeholder="输入验证码">
+              <template slot="prepend">
+                <el-image class="captcha-input-prepend-img" :src="captchaInputPrependImgSrc" :fit="contain" />
+              </template>
+            </el-input>
+          </el-col>
+        </el-row>
         <el-row class="login-btn-block">
           <el-col class="login-btn-block-btn">
             <el-button>登录</el-button>
@@ -81,6 +90,7 @@ export default {
       accountInputPrependImgSrc: require('@/assets/login-account-icon.svg'),
       passwdInputPrependImgSrc: require('@/assets/login-passwd-icon.svg'),
       passwdInputAppendImgSrc: require('@/assets/login-passwd-visible-icon.svg'),
+      captchaInputPrependImgSrc: require('@/assets/login-captcha-img.jpg'),
     }
   }
 }
@@ -120,7 +130,7 @@ export default {
   position: absolute;
   top:20%;
   width: 360px;
-  height: 420px;
+  height: 480px;
   background-color: rgba(0, 0, 0, 0);
   display: flex;
   flex-direction: column;
@@ -209,6 +219,11 @@ export default {
   width: 100%;
 }
 
+.captcha-input-block {
+  margin: 10px 0 20px 0;
+  width: 100%;
+}
+
 .account-input-block-input {
   width: 100%;
   height: 34px;
@@ -265,6 +280,28 @@ export default {
   }
 }
 
+.captcha-input-block-input {
+  width: 100%;
+  height: 34px;
+  border-color: #555555;
+
+  ::v-deep .el-input__inner{
+    height: 34px;
+    background-color: #353C48;
+    border-color: #555555;
+  }
+
+  ::v-deep .el-input__inner::placeholder{
+    color: #92A0B1;
+  }
+
+  ::v-deep .el-input-group__prepend {
+    padding: 0;
+    background-color: #353C48;
+    border-color: #555555;
+  }
+}
+
 .account-input-prepend-img {
   width: 20px;
   height: 20px;
@@ -273,6 +310,11 @@ export default {
 .passwd-input-prepend-img {
   width: 20px;
   height: 20px;
+}
+
+.captcha-input-prepend-img {
+  width: 80px;
+  height: 100%;
 }
 
 .account-input-append-img {
