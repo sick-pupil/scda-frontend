@@ -1,3 +1,20 @@
 $--color-primary: #2389AE;
+
+$--input-border: 1px solid #555555;
+$--input-border-color: #555555;
+$--input-hover-border: #9c9c9c;
+$--input-background-color: #353C48;
+$--input-font-color: #92A0B1;
+$--input-placeholder-color: #92A0B1;
+
+$--link-color: #92A0B1;
+$--link-hover-color: #92A0B1;
+
+$--button-primary-background-color: #2389AE;
+
+$--button-default-background-color: #303641;
+$--button-default-font-color: #92A0B1;
+$--button-default-border-color: #555555;
+
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import "~element-ui/packages/theme-chalk/src/index";
