@@ -2,7 +2,7 @@
     <div class="error">
         <div class="tips-block">
             <el-image class="error-img" :src="errorImgSrc" />
-            <p><span>系统出错无法预估的错误，请返回首页</span></p>
+            <p><span>系统出现无法预估的错误，请返回首页</span></p>
             <el-button size="middle">返回首页</el-button>
         </div>
         
