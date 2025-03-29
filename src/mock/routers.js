@@ -107,12 +107,8 @@ export default [
         component: () => import('@/views/login/index.vue'),
     },
     {
-        path: '/404',
-        component: () => import('@/views/404/index.vue'),
-    },
-    {
-        path: '/401',
-        component: () => import('@/views/401/index.vue'),
+        path: '/error',
+        component: () => import('@/views/error/index.vue'),
     },
     {
         path: '/',
