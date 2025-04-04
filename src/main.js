@@ -4,6 +4,7 @@ import router from '@/router'
 import store from '@/store'
 import ElementUI from 'element-ui'
 import '@/style/element-variables.scss'
+import '@/style/element-styles.scss'
 
 Vue.config.devtools = true;
 

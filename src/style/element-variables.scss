@@ -16,5 +16,14 @@ $--button-default-background-color: #303641;
 $--button-default-font-color: #92A0B1;
 $--button-default-border-color: #555555;
 
+$--dialog-background-color: #353C48;
+
+$--table-header-background-color: #303641;
+$--table-header-font-color: #A5ADBC;
+$--table-font-color: #A5ADBC;
+$--table-row-hover-background-color: #2A3039;
+$--table-border-color: #797979;
+
+
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import "~element-ui/packages/theme-chalk/src/index";

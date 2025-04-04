@@ -1,0 +1,27 @@
+.el-dialog__title {
+    color: #A5ADBC;
+}
+
+.el-table .el-table__body-wrapper .el-table__cell {
+    background-color: #303641;
+}
+
+.el-pagination .btn-prev {
+    background-color: #303641 !important;
+    color: #A5ADBC !important;
+}
+
+.el-pagination .el-pager li {
+    background-color: #303641 !important;
+    color: #A5ADBC !important;
+}
+
+.el-pagination .el-pager li:not(.disabled).active {
+    color: #FFFFFF !important;
+    background-color: #2389AE !important;
+}
+
+.el-pagination .btn-next {
+    background-color: #303641 !important;
+    color: #A5ADBC !important;
+}
