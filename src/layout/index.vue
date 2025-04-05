@@ -1,6 +1,6 @@
 <template>
     <div class="layout">
-        <el-container>
+        <el-container class="layout-container">
             <el-header height="62px">
                 <div class="layout-header-logo-img-block">
                     <el-image class="layout-header-logo-img" :src="layoutLogoImgSrc" />
@@ -28,8 +28,113 @@
                 </div>
             </el-header>
             <el-container>
-                <el-aside width="210px">Aside</el-aside>
-                <el-main>Main</el-main>
+                <el-aside width="210px">
+                    <el-menu class="layout-sider-menu-v-menu" :default-active="activeMenuIndex" background-color="#303641"
+                        text-color="#92A0B1" active-text-color="#FFFFFF" :default-openeds="layoutSiderMenuOpenStatus">
+
+                        <el-menu-item index="1">
+                            <el-image class="layout-sider-menu-icon" :src="dashboardMenuImgSrc" />
+                            &nbsp;
+                            <span slot="title">仪表盘</span>
+                        </el-menu-item>
+
+                        <el-submenu index="2">
+                            <template slot="title">
+                                <el-image class="layout-sider-menu-icon" :src="sampleAndInstanceMenuImgSrc" />
+                                &nbsp;
+                                <span>样本与实例</span>
+                            </template>
+                            <el-menu-item index="2-1">
+                                <el-image class="layout-sider-menu-icon" :src="sampleMenuImgSrc" />
+                                &nbsp;
+                                <span slot="title">样本</span>
+                            </el-menu-item>
+                            <el-menu-item index="2-2">
+                                <el-image class="layout-sider-menu-icon" :src="instanceMenuImgSrc" />
+                                &nbsp;
+                                <span slot="title">实例</span>
+                            </el-menu-item>
+                            <el-menu-item index="2-3">
+                                <el-image class="layout-sider-menu-icon" :src="stepMenuImgSrc" />
+                                &nbsp;
+                                <span slot="title">步骤</span>
+                            </el-menu-item>
+                        </el-submenu>
+
+                        <el-submenu index="3">
+                            <template slot="title">
+                                <el-image class="layout-sider-menu-icon" :src="instanceDataMenuImgSrc" />
+                                &nbsp;
+                                <span>实例数据</span>
+                            </template>
+                            <el-submenu index="3-1">
+                                <template slot="title">
+                                    <el-image class="layout-sider-menu-icon" :src="bilibiliMenuImgSrc" />
+                                    &nbsp;
+                                    <span>BiliBili</span>
+                                </template>
+                                <el-menu-item index="3-1-1">
+                                    <el-image class="layout-sider-menu-icon" :src="videoMenuImgSrc" />
+                                    &nbsp;
+                                    <span slot="title">视频</span>
+                                </el-menu-item>
+                                <el-menu-item index="3-1-2">
+                                    <el-image class="layout-sider-menu-icon" :src="commentMenuImgSrc" />
+                                    &nbsp;
+                                    <span slot="title">评论</span>
+                                </el-menu-item>
+                                <el-menu-item index="3-1-3">
+                                    <el-image class="layout-sider-menu-icon" :src="danmuMenuImgSrc" />
+                                    &nbsp;
+                                    <span slot="title">弹幕</span>
+                                </el-menu-item>
+                                <el-menu-item index="3-1-4">
+                                    <el-image class="layout-sider-menu-icon" :src="userMenuImgSrc" />
+                                    &nbsp;
+                                    <span slot="title">用户</span>
+                                </el-menu-item>
+                            </el-submenu>
+                        </el-submenu>
+
+                        <el-menu-item index="4">
+                            <el-image class="layout-sider-menu-icon" :src="runtimeLogMenuImgSrc" />
+                            &nbsp;
+                            <span slot="title">运行日志</span>
+                        </el-menu-item>
+
+                        <el-menu-item index="5">
+                            <el-image class="layout-sider-menu-icon" :src="runtimeMonitorMenuImgSrc" />
+                            &nbsp;
+                            <span slot="title">运行状态监控</span>
+                        </el-menu-item>
+
+                        <el-menu-item index="6">
+                            <el-image class="layout-sider-menu-icon" :src="ipAgentMenuImgSrc" />
+                            &nbsp;
+                            <span slot="title">IP代理池</span>
+                        </el-menu-item>
+
+                        <el-menu-item index="7">
+                            <el-image class="layout-sider-menu-icon" :src="userAgentMenuImgSrc" />
+                            &nbsp;
+                            <span slot="title">UA池</span>
+                        </el-menu-item>
+
+                        <el-menu-item index="8">
+                            <el-image class="layout-sider-menu-icon" :src="notificationLogMenuImgSrc" />
+                            &nbsp;
+                            <span slot="title">通知日志</span>
+                        </el-menu-item>
+                    </el-menu>
+                </el-aside>
+                <el-main>
+                    <el-breadcrumb separator-class="el-icon-arrow-right">
+                        <el-breadcrumb-item>首页</el-breadcrumb-item>
+                        <el-breadcrumb-item>活动管理</el-breadcrumb-item>
+                        <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+                    </el-breadcrumb>
+                    <router-view />
+                </el-main>
             </el-container>
         </el-container>
 
@@ -46,32 +151,74 @@
         </el-dialog>
 
         <el-dialog title="CPU监控" :visible.sync="cpuDialogVisible" width="20%" center>
-            <span class="progress-desc">用户空间CPU使用率</span>
-            <el-progress :percentage="cpuStatus.userSpaceUsageRate" stroke-width="10" text-color="#A5ADBC"/>
-            <span class="progress-desc">系统空间CPU使用率</span>
-            <el-progress :percentage="cpuStatus.systemSpaceUsageRate" stroke-width="10" text-color="#A5ADBC"/>
-            <span class="progress-desc">空闲CPU</span>
-            <el-progress :percentage="cpuStatus.idleRate" stroke-width="10" text-color="#A5ADBC"/>
-            <span class="progress-desc">CPU运行时等待IO</span>
-            <el-progress :percentage="cpuStatus.ioBlockRuntime" stroke-width="10" text-color="#A5ADBC"/>
+            <el-dropdown style="float: right;">
+                <el-button type="primary" size="mini">
+                    节点<i class="el-icon-arrow-down el-icon--right"></i>
+                </el-button>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>节点1</el-dropdown-item>
+                    <el-dropdown-item>节点2</el-dropdown-item>
+                    <el-dropdown-item>节点3</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+
+            <br /><br />
+            <p class="progress-desc">用户空间CPU使用率</p>
+            <el-progress :percentage="cpuStatus.userSpaceUsageRate" stroke-width="10" text-color="#A5ADBC" />
+            <p class="progress-desc">系统空间CPU使用率</p>
+            <el-progress :percentage="cpuStatus.systemSpaceUsageRate" stroke-width="10" text-color="#A5ADBC" />
+            <p class="progress-desc">空闲CPU</p>
+            <el-progress :percentage="cpuStatus.idleRate" stroke-width="10" text-color="#A5ADBC" />
+            <p class="progress-desc">CPU运行时等待IO</p>
+            <el-progress :percentage="cpuStatus.ioBlockRuntime" stroke-width="10" text-color="#A5ADBC" />
         </el-dialog>
 
         <el-dialog title="内存监控" :visible.sync="memoryDialogVisible" width="20%" center>
-            <span class="progress-desc">总内存</span>
-            <el-progress :percentage="memoryStatus.totalSize" stroke-width="10" text-color="#A5ADBC" :format="memoryProgressFormat"/>
-            <span class="progress-desc">已使用内存</span>
-            <el-progress :percentage="memoryStatus.usedSize" stroke-width="10" text-color="#A5ADBC" :format="memoryProgressFormat"/>
-            <span class="progress-desc">未使用内存</span>
-            <el-progress :percentage="memoryStatus.notUsedSize" stroke-width="10" text-color="#A5ADBC" :format="memoryProgressFormat"/>
+            <el-dropdown style="float: right;">
+                <el-button type="primary" size="mini">
+                    节点<i class="el-icon-arrow-down el-icon--right"></i>
+                </el-button>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>节点1</el-dropdown-item>
+                    <el-dropdown-item>节点2</el-dropdown-item>
+                    <el-dropdown-item>节点3</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+
+            <br /><br />
+            <p class="progress-desc">总内存</p>
+            <el-progress :percentage="memoryStatus.totalSize" stroke-width="10" text-color="#A5ADBC"
+                :format="memoryProgressFormat" />
+            <p class="progress-desc">已使用内存</p>
+            <el-progress :percentage="memoryStatus.usedSize" stroke-width="10" text-color="#A5ADBC"
+                :format="memoryProgressFormat" />
+            <p class="progress-desc">未使用内存</p>
+            <el-progress :percentage="memoryStatus.notUsedSize" stroke-width="10" text-color="#A5ADBC"
+                :format="memoryProgressFormat" />
         </el-dialog>
 
         <el-dialog title="磁盘监控" :visible.sync="diskDialogVisible" width="20%" center>
-            <span class="progress-desc">总磁盘</span>
-            <el-progress :percentage="diskStatus.totalSize" stroke-width="10" text-color="#A5ADBC" :format="diskProgressFormat"/>
-            <span class="progress-desc">已使用磁盘</span>
-            <el-progress :percentage="diskStatus.usedSize" stroke-width="10" text-color="#A5ADBC" :format="diskProgressFormat"/>
-            <span class="progress-desc">未使用磁盘</span>
-            <el-progress :percentage="diskStatus.notUsedSize" stroke-width="10" text-color="#A5ADBC" :format="diskProgressFormat"/>
+            <el-dropdown style="float: right;">
+                <el-button type="primary" size="mini">
+                    节点<i class="el-icon-arrow-down el-icon--right"></i>
+                </el-button>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>节点1</el-dropdown-item>
+                    <el-dropdown-item>节点2</el-dropdown-item>
+                    <el-dropdown-item>节点3</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+
+            <br /><br />
+            <p class="progress-desc">总磁盘</p>
+            <el-progress :percentage="diskStatus.totalSize" stroke-width="10" text-color="#A5ADBC"
+                :format="diskProgressFormat" />
+            <p class="progress-desc">已使用磁盘</p>
+            <el-progress :percentage="diskStatus.usedSize" stroke-width="10" text-color="#A5ADBC"
+                :format="diskProgressFormat" />
+            <p class="progress-desc">未使用磁盘</p>
+            <el-progress :percentage="diskStatus.notUsedSize" stroke-width="10" text-color="#A5ADBC"
+                :format="diskProgressFormat" />
         </el-dialog>
     </div>
 </template>
@@ -134,7 +281,29 @@ export default {
                 totalSize: 10,
                 usedSize: 3,
                 notUsedSize: 7,
-            }
+            },
+
+            dashboardMenuImgSrc: require('@/assets/icon/dashboard.png'),
+
+            sampleAndInstanceMenuImgSrc: require('@/assets/icon/sampleAndInstance.png'),
+            sampleMenuImgSrc: require('@/assets/icon/sample.png'),
+            instanceMenuImgSrc: require('@/assets/icon/instance.png'),
+            stepMenuImgSrc: require('@/assets/icon/step.png'),
+
+            instanceDataMenuImgSrc: require('@/assets/icon/instanceData.png'),
+            bilibiliMenuImgSrc: require('@/assets/icon/bilibili.png'),
+            videoMenuImgSrc: require('@/assets/icon/video.png'),
+            commentMenuImgSrc: require('@/assets/icon/comment.png'),
+            danmuMenuImgSrc: require('@/assets/icon/danmu.png'),
+            userMenuImgSrc: require('@/assets/icon/user.png'),
+
+            runtimeLogMenuImgSrc: require('@/assets/icon/runtimeLog.png'),
+            runtimeMonitorMenuImgSrc: require('@/assets/icon/runtimeMonitor.png'),
+            ipAgentMenuImgSrc: require('@/assets/icon/ipAgent.png'),
+            userAgentMenuImgSrc: require('@/assets/icon/userAgent.png'),
+            notificationLogMenuImgSrc: require('@/assets/icon/notificationLog.png'),
+
+            layoutSiderMenuOpenStatus: ['2', '3', '3-1',]
         }
     },
     methods: {
@@ -169,6 +338,11 @@ export default {
     height: 100%;
     width: 100%;
     background-color: #353C48;
+}
+
+.layout-container {
+    height: 100%;
+    width: 100%;
 }
 
 .el-header {
@@ -242,6 +416,15 @@ export default {
 .el-aside {
     background-color: #353C48;
     border-right: 1px solid #242831;
+
+    .layout-sider-menu-v-menu {
+        border-right: 0px;
+
+        .layout-sider-menu-icon {
+            width: 20px;
+            height: 20px;
+        }
+    }
 }
 
 .el-main {
@@ -249,6 +432,7 @@ export default {
 }
 
 .progress-desc {
+    margin: 0px;
     color: #A5ADBC;
 }
 </style>

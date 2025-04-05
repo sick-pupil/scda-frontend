@@ -25,3 +25,27 @@
     background-color: #303641 !important;
     color: #A5ADBC !important;
 }
+
+.el-dropdown-menu {
+    background-color: #353C48 !important;
+    color: #A5ADBC !important;
+    border: 1px solid #797979 !important;
+}
+
+.el-dropdown-menu__item {
+    background-color: #303641 !important;
+    color: #A5ADBC !important;
+}
+
+.el-dropdown-menu__item:hover {
+    background-color: #262B34 !important;
+    color: #FFFFFF !important;
+}
+
+.el-breadcrumb__inner {
+    color: #A5ADBC;
+}
+
+.el-breadcrumb__item:last-child .el-breadcrumb__inner {
+    color: #A5ADBC;
+}
