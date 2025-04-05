@@ -22,7 +22,7 @@
                         <el-image class="layout-header-menu-btns" :src="noticeImgSrc" @click="showNoticeDialog" />
                         <el-image class="layout-header-menu-btns" :src="cpuImgSrc" @click="showCpuDialog" />
                         <el-image class="layout-header-menu-btns" :src="memoryImgSrc" @click="showMemeryDialog" />
-                        <el-image class="layout-header-menu-btns" :src="dbImgSrc" @click="showDbDialog" />
+                        <el-image class="layout-header-menu-btns" :src="diskImgSrc" @click="showDiskDialog" />
                         <el-image class="layout-header-menu-btns" :src="userImgSrc" @click="showUserDialog" />
                     </div>
                 </div>
@@ -34,7 +34,7 @@
         </el-container>
 
         <el-dialog title="通知" :visible.sync="noticeDialogVisible" width="40%" center>
-            <el-table :data="gridData">
+            <el-table :data="noticeDialogTableData">
                 <el-table-column type="index" width="50" />
                 <el-table-column property="time" label="时间" width="180" />
                 <el-table-column property="channel" label="渠道" width="50" />
@@ -44,6 +44,35 @@
                 <el-pagination background layout="prev, pager, next" :total="1000" />
             </span>
         </el-dialog>
+
+        <el-dialog title="CPU监控" :visible.sync="cpuDialogVisible" width="20%" center>
+            <span class="progress-desc">用户空间CPU使用率</span>
+            <el-progress :percentage="cpuStatus.userSpaceUsageRate" stroke-width="10" text-color="#A5ADBC"/>
+            <span class="progress-desc">系统空间CPU使用率</span>
+            <el-progress :percentage="cpuStatus.systemSpaceUsageRate" stroke-width="10" text-color="#A5ADBC"/>
+            <span class="progress-desc">空闲CPU</span>
+            <el-progress :percentage="cpuStatus.idleRate" stroke-width="10" text-color="#A5ADBC"/>
+            <span class="progress-desc">CPU运行时等待IO</span>
+            <el-progress :percentage="cpuStatus.ioBlockRuntime" stroke-width="10" text-color="#A5ADBC"/>
+        </el-dialog>
+
+        <el-dialog title="内存监控" :visible.sync="memoryDialogVisible" width="20%" center>
+            <span class="progress-desc">总内存</span>
+            <el-progress :percentage="memoryStatus.totalSize" stroke-width="10" text-color="#A5ADBC" :format="memoryProgressFormat"/>
+            <span class="progress-desc">已使用内存</span>
+            <el-progress :percentage="memoryStatus.usedSize" stroke-width="10" text-color="#A5ADBC" :format="memoryProgressFormat"/>
+            <span class="progress-desc">未使用内存</span>
+            <el-progress :percentage="memoryStatus.notUsedSize" stroke-width="10" text-color="#A5ADBC" :format="memoryProgressFormat"/>
+        </el-dialog>
+
+        <el-dialog title="磁盘监控" :visible.sync="diskDialogVisible" width="20%" center>
+            <span class="progress-desc">总磁盘</span>
+            <el-progress :percentage="diskStatus.totalSize" stroke-width="10" text-color="#A5ADBC" :format="diskProgressFormat"/>
+            <span class="progress-desc">已使用磁盘</span>
+            <el-progress :percentage="diskStatus.usedSize" stroke-width="10" text-color="#A5ADBC" :format="diskProgressFormat"/>
+            <span class="progress-desc">未使用磁盘</span>
+            <el-progress :percentage="diskStatus.notUsedSize" stroke-width="10" text-color="#A5ADBC" :format="diskProgressFormat"/>
+        </el-dialog>
     </div>
 </template>
   
@@ -51,17 +80,21 @@
 export default {
     data() {
         return {
-            layoutLogoImgSrc: require('@/assets/logo.png'),
             activeMenuIndex: '1',
+
+            layoutLogoImgSrc: require('@/assets/logo.png'),
             noticeImgSrc: require('@/assets/notice.svg'),
             cpuImgSrc: require('@/assets/cpu.svg'),
             memoryImgSrc: require('@/assets/memory.svg'),
-            dbImgSrc: require('@/assets/db.svg'),
+            diskImgSrc: require('@/assets/disk.svg'),
             userImgSrc: require('@/assets/user.svg'),
 
-            noticeDialogVisible: true,
+            noticeDialogVisible: false,
+            cpuDialogVisible: false,
+            memoryDialogVisible: false,
+            diskDialogVisible: false,
 
-            gridData: [
+            noticeDialogTableData: [
                 {
                     time: '2016-05-02 11:11:11',
                     channel: '微信',
@@ -83,6 +116,25 @@ export default {
                     content: '上海市普陀区金沙江路'
                 }
             ],
+
+            cpuStatus: {
+                userSpaceUsageRate: 30,
+                systemSpaceUsageRate: 70,
+                idleRate: 99,
+                ioBlockRuntime: 0,
+            },
+
+            memoryStatus: {
+                totalSize: 10,
+                usedSize: 3,
+                notUsedSize: 7,
+            },
+
+            diskStatus: {
+                totalSize: 10,
+                usedSize: 3,
+                notUsedSize: 7,
+            }
         }
     },
     methods: {
@@ -90,17 +142,24 @@ export default {
             this.noticeDialogVisible = !this.noticeDialogVisible;
         },
         showCpuDialog() {
-
+            this.cpuDialogVisible = !this.cpuDialogVisible;
         },
         showMemeryDialog() {
-
+            this.memoryDialogVisible = !this.memoryDialogVisible;
         },
-        showDbDialog() {
-
+        showDiskDialog() {
+            this.diskDialogVisible = !this.diskDialogVisible;
         },
         showUserDialog() {
 
         },
+
+        memoryProgressFormat(num) {
+            return `${num}GB`;
+        },
+        diskProgressFormat(num) {
+            return `${num}GB`;
+        }
     }
 }
 </script>
@@ -187,6 +246,10 @@ export default {
 
 .el-main {
     background-color: #353C48;
+}
+
+.progress-desc {
+    color: #A5ADBC;
 }
 </style>
   
