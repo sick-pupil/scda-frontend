@@ -133,6 +133,7 @@
                         <el-breadcrumb-item>活动管理</el-breadcrumb-item>
                         <el-breadcrumb-item>活动列表</el-breadcrumb-item>
                     </el-breadcrumb>
+                    &nbsp;
                     <router-view />
                 </el-main>
             </el-container>
@@ -230,11 +231,11 @@ export default {
             activeMenuIndex: '1',
 
             layoutLogoImgSrc: require('@/assets/logo.png'),
-            noticeImgSrc: require('@/assets/notice.svg'),
-            cpuImgSrc: require('@/assets/cpu.svg'),
-            memoryImgSrc: require('@/assets/memory.svg'),
-            diskImgSrc: require('@/assets/disk.svg'),
-            userImgSrc: require('@/assets/user.svg'),
+            noticeImgSrc: require('@/assets/layout/notice.svg'),
+            cpuImgSrc: require('@/assets/layout/cpu.svg'),
+            memoryImgSrc: require('@/assets/layout/memory.svg'),
+            diskImgSrc: require('@/assets/layout/disk.svg'),
+            userImgSrc: require('@/assets/layout/user.svg'),
 
             noticeDialogVisible: false,
             cpuDialogVisible: false,
@@ -283,25 +284,25 @@ export default {
                 notUsedSize: 7,
             },
 
-            dashboardMenuImgSrc: require('@/assets/icon/dashboard.png'),
+            dashboardMenuImgSrc: require('@/assets/menu-icon/dashboard.png'),
 
-            sampleAndInstanceMenuImgSrc: require('@/assets/icon/sampleAndInstance.png'),
-            sampleMenuImgSrc: require('@/assets/icon/sample.png'),
-            instanceMenuImgSrc: require('@/assets/icon/instance.png'),
-            stepMenuImgSrc: require('@/assets/icon/step.png'),
+            sampleAndInstanceMenuImgSrc: require('@/assets/menu-icon/sampleAndInstance.png'),
+            sampleMenuImgSrc: require('@/assets/menu-icon/sample.png'),
+            instanceMenuImgSrc: require('@/assets/menu-icon/instance.png'),
+            stepMenuImgSrc: require('@/assets/menu-icon/step.png'),
 
-            instanceDataMenuImgSrc: require('@/assets/icon/instanceData.png'),
-            bilibiliMenuImgSrc: require('@/assets/icon/bilibili.png'),
-            videoMenuImgSrc: require('@/assets/icon/video.png'),
-            commentMenuImgSrc: require('@/assets/icon/comment.png'),
-            danmuMenuImgSrc: require('@/assets/icon/danmu.png'),
-            userMenuImgSrc: require('@/assets/icon/user.png'),
+            instanceDataMenuImgSrc: require('@/assets/menu-icon/instanceData.png'),
+            bilibiliMenuImgSrc: require('@/assets/menu-icon/bilibili.png'),
+            videoMenuImgSrc: require('@/assets/menu-icon/video.png'),
+            commentMenuImgSrc: require('@/assets/menu-icon/comment.png'),
+            danmuMenuImgSrc: require('@/assets/menu-icon/danmu.png'),
+            userMenuImgSrc: require('@/assets/menu-icon/user.png'),
 
-            runtimeLogMenuImgSrc: require('@/assets/icon/runtimeLog.png'),
-            runtimeMonitorMenuImgSrc: require('@/assets/icon/runtimeMonitor.png'),
-            ipAgentMenuImgSrc: require('@/assets/icon/ipAgent.png'),
-            userAgentMenuImgSrc: require('@/assets/icon/userAgent.png'),
-            notificationLogMenuImgSrc: require('@/assets/icon/notificationLog.png'),
+            runtimeLogMenuImgSrc: require('@/assets/menu-icon/runtimeLog.png'),
+            runtimeMonitorMenuImgSrc: require('@/assets/menu-icon/runtimeMonitor.png'),
+            ipAgentMenuImgSrc: require('@/assets/menu-icon/ipAgent.png'),
+            userAgentMenuImgSrc: require('@/assets/menu-icon/userAgent.png'),
+            notificationLogMenuImgSrc: require('@/assets/menu-icon/notificationLog.png'),
 
             layoutSiderMenuOpenStatus: ['2', '3', '3-1',]
         }

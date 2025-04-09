@@ -166,13 +166,13 @@
 export default {
     data() {
         return {
-            loginLeftBgLayoutSrc: require('@/assets/login-left-bg-layout.svg'),
-            loginLeftBgAnimeImgSrc: require('@/assets/login-left-bg-anime-img.png'),
+            loginLeftBgLayoutSrc: require('@/assets/login/login-left-bg-layout.svg'),
+            loginLeftBgAnimeImgSrc: require('@/assets/login/login-left-bg-anime-img.png'),
             logoImgSrc: require('@/assets/logo.png'),
-            accountInputPrependImgSrc: require('@/assets/login-account-icon.svg'),
-            passwdInputPrependImgSrc: require('@/assets/login-passwd-icon.svg'),
-            passwdInputAppendImgSrc: require('@/assets/login-passwd-visible-icon.svg'),
-            captchaInputPrependImgSrc: require('@/assets/login-captcha-img.jpg'),
+            accountInputPrependImgSrc: require('@/assets/login/login-account-icon.svg'),
+            passwdInputPrependImgSrc: require('@/assets/login/login-passwd-icon.svg'),
+            passwdInputAppendImgSrc: require('@/assets/login/login-passwd-visible-icon.svg'),
+            captchaInputPrependImgSrc: require('@/assets/login/login-captcha-img.jpg'),
             accountInput: '',
             passwdInput: '',
             captchaInput: '',

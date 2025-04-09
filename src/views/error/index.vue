@@ -19,7 +19,7 @@
 export default {
     data() {
         return {
-            errorImgSrc: require('@/assets/error-img.png'),
+            errorImgSrc: require('@/assets/error-page/error-img.png'),
         }
     },
 }
