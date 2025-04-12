@@ -78,7 +78,14 @@
                 </div>
 
                 <div class="user-video-analyse-chart-block">
-                    <div id="leftChart" :style="{ width: '42%', height: '100%' }"></div>
+                    <div class="left-chart-block">
+                        <div class="left-chart-right-top-btns">
+                            <el-button type="primary" size="mini" @click="timeRangeClick">日</el-button>
+                            <el-button type="primary" size="mini" @click="timeRangeClick">周</el-button>
+                            <el-button type="primary" size="mini" @click="timeRangeClick">月</el-button>
+                        </div>
+                        <div id="left-chart"></div>
+                    </div>
                     <div class="user-video-analyse-chart-block-middle">
                         <p class="user-video-analyse-chart-block-middle-title">已分析用户与视频</p>
                         <p style="text-align: center;">
@@ -92,8 +99,17 @@
                             <span class="user-video-analyse-chart-block-middle-desc">视频</span>
                         </p>
                     </div>
-                    <div id="rightChart" :style="{ width: '42%', height: '100%' }"></div>
+                    <div class="right-chart-block">
+                        <div class="right-chart-right-top-btns">
+                            <el-button type="primary" size="mini" @click="timeRangeClick">日</el-button>
+                            <el-button type="primary" size="mini" @click="timeRangeClick">周</el-button>
+                            <el-button type="primary" size="mini" @click="timeRangeClick">月</el-button>
+                        </div>
+                        <div id="right-chart"></div>
+                    </div>
                 </div>
+
+                <div class="crawl-success-fail-chart-table-block"></div>
             </el-collapse-item>
             <el-collapse-item title="抖音" name="douyin">
                 <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
@@ -132,43 +148,92 @@ export default {
     },
     methods: {
         initEcharts() {
-            var leftChart = this.$echarts.init(document.getElementById('leftChart'))
+            var leftChart = this.$echarts.init(document.getElementById('left-chart'))
             var option = {
+                title: {
+                    text: '分析用户',
+                    left: 'center',
+                    textStyle: {
+                        color: '#92A0B1',
+                        fontSize: 15,
+                        fontWeight: 'bold'
+                    }
+                },
                 xAxis: {
                     type: 'category',
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
                 },
                 yAxis: {
-                    type: 'value'
+                    type: 'value',
+                    splitLine: {
+                        show: false
+                    }
                 },
                 series: [
                     {
-                        data: [120, 200, 150, 80, 70, 110, 130],
-                        type: 'bar'
+                        data: [
+                            { value: 120, itemStyle: { color: '#3EAAD1' } },
+                            { value: 200, itemStyle: { color: '#3EAAD1' } },
+                            { value: 150, itemStyle: { color: '#3EAAD1' } },
+                            { value: 80, itemStyle: { color: '#3EAAD1' } },
+                            { value: 70, itemStyle: { color: '#3EAAD1' } },
+                            { value: 110, itemStyle: { color: '#3EAAD1' } },
+                            { value: 130, itemStyle: { color: '#3EAAD1' } },
+                        ],
+                        type: 'bar',
+                        barWidth: '50%',
                     }
                 ]
             };
             window.onresize = leftChart.resize;
             leftChart.setOption(option);
 
-            var rightChart = this.$echarts.init(document.getElementById('rightChart'))
+            var rightChart = this.$echarts.init(document.getElementById('right-chart'))
             var option = {
+                title: {
+                    text: '分析视频',
+                    left: 'center',
+                    textStyle: {
+                        color: '#92A0B1',
+                        fontSize: 15,
+                        fontWeight: 'bold'
+                    }
+                },
                 xAxis: {
                     type: 'category',
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
                 },
                 yAxis: {
-                    type: 'value'
+                    type: 'value',
+                    splitLine: {
+                        show: false
+                    }
                 },
                 series: [
                     {
-                        data: [120, 200, 150, 80, 70, 110, 130],
-                        type: 'bar'
+                        data: [
+                            { value: 120, itemStyle: { color: '#3EAAD1' } },
+                            { value: 200, itemStyle: { color: '#3EAAD1' } },
+                            { value: 150, itemStyle: { color: '#3EAAD1' } },
+                            { value: 80, itemStyle: { color: '#3EAAD1' } },
+                            { value: 70, itemStyle: { color: '#3EAAD1' } },
+                            { value: 110, itemStyle: { color: '#3EAAD1' } },
+                            { value: 130, itemStyle: { color: '#3EAAD1' } },
+                        ],
+                        type: 'bar',
+                        barWidth: '50%',
                     }
                 ]
             };
             window.onresize = rightChart.resize;
             rightChart.setOption(option);
+        },
+
+        timeRangeClick() {
+            this.$message({
+                message: '柱状图切换时间范围',
+                type: 'success'
+            });
         }
     }
 }
@@ -264,21 +329,57 @@ export default {
     border-radius: 10px;
     background-color: #303641;
     width: 100%;
-    height: 400px;
+    height: 500px;
     margin: 30px 0px 30px 0px;
 
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+
+    .left-chart-block {
+        width: 40%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        .left-chart-right-top-btns {
+            width: 100%;
+            height: 10%;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
+
+    .right-chart-block {
+        width: 40%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        .right-chart-right-top-btns {
+            width: 100%;
+            height: 10%;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
 
     .user-video-analyse-chart-block-middle {
         border: 1px solid #797979;
         border-radius: 10px;
 
         width: 15%;
-        height: 80%;
+        height: 70%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -302,5 +403,26 @@ export default {
             margin: 0px;
         }
     }
+}
+
+.crawl-success-fail-chart-table-block {
+    width: 100%;
+    height: 320px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#left-chart {
+    width: 100%;
+    height: 90%;
+}
+
+#right-chart {
+    width: 100%;
+    height: 90%;
 }
 </style>
