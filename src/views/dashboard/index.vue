@@ -109,7 +109,31 @@
                     </div>
                 </div>
 
-                <div class="crawl-success-fail-chart-table-block"></div>
+                <div class="crawl-success-fail-chart-table-block">
+                    <div class="crawl-success-fail-chart-block">
+                        <div class="crawl-success-fail-chart-block-right-top-btns">
+                            <el-date-picker type="daterange" range-separator="至" start-placeholder="开始日期"
+                                end-placeholder="结束日期" size="mini" />
+                        </div>
+                        <div class="crawl-success-fail-pie-bar-chart-block">
+                            <div id="left-pie-chart"></div>
+                            <div id="right-bar-chart"></div>
+                        </div>
+                    </div>
+                    <div class="crawl-success-fail-table-block">
+                        <div class="crawl-success-fail-table-block-right-top-btns">
+                            <span style="font-size: 18px;">抓取失败日志 总数：{{crawlFailNum}}</span>
+                            <el-button type="primary" size="mini" @click="crawlDetailLogJump">详情</el-button>
+                        </div>
+                        <el-table class="crawl-success-fail-table" :data="tableData" border height="100%">
+                            <el-table-column fixed prop="crawlId" label="抓取id"/>
+                            <el-table-column prop="message" label="报错" :show-overflow-tooltip="true"/>
+                            <el-table-column prop="targetUrl" label="目标URL" :show-overflow-tooltip="true"/>
+                            <el-table-column prop="request" label="请求" :show-overflow-tooltip="true"/>
+                            <el-table-column prop="requestTime" label="请求时间" width="160"/>
+                        </el-table>
+                    </div>
+                </div>
             </el-collapse-item>
             <el-collapse-item title="抖音" name="douyin">
                 <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
@@ -141,13 +165,132 @@ export default {
             labelStatisticsCardImgSrc: require('@/assets/dashboard/label.png'),
             tickStatisticsCardImgSrc: require('@/assets/dashboard/tick.png'),
             crossStatisticsCardImgSrc: require('@/assets/dashboard/cross.png'),
+
+            tableData: [
+                {
+                    crawlId: '1',
+                    message: '上海市普陀区金沙江路 1518 弄',
+                    targetUrl: 'http://www.bilibili.com',
+                    request: `
+                    {
+                        "id": 78345,
+                        "name": "Example User",
+                        "email": "example.user@example.com",
+                        "age": 28,
+                        "tags": ["developer", "front-end", "vuejs"],
+                        "isActive": true
+                    }`,
+                    requestTime: '2024-02-21 15:56:32',
+                }, {
+                    crawlId: '1',
+                    message: '上海市普陀区金沙江路 1518 弄',
+                    targetUrl: 'http://www.bilibili.com',
+                    request: `
+                    {
+                        "id": 78345,
+                        "name": "Example User",
+                        "email": "example.user@example.com",
+                        "age": 28,
+                        "tags": ["developer", "front-end", "vuejs"],
+                        "isActive": true
+                    }`,
+                    requestTime: '2024-02-21 15:56:32',
+                }, {
+                    crawlId: '1',
+                    message: '上海市普陀区金沙江路 1518 弄',
+                    targetUrl: 'http://www.bilibili.com',
+                    request: `
+                    {
+                        "id": 78345,
+                        "name": "Example User",
+                        "email": "example.user@example.com",
+                        "age": 28,
+                        "tags": ["developer", "front-end", "vuejs"],
+                        "isActive": true
+                    }`,
+                    requestTime: '2024-02-21 15:56:32',
+                }, {
+                    crawlId: '1',
+                    message: '上海市普陀区金沙江路 1518 弄',
+                    targetUrl: 'http://www.bilibili.com',
+                    request: `
+                    {
+                        "id": 78345,
+                        "name": "Example User",
+                        "email": "example.user@example.com",
+                        "age": 28,
+                        "tags": ["developer", "front-end", "vuejs"],
+                        "isActive": true
+                    }`,
+                    requestTime: '2024-02-21 15:56:32',
+                }, {
+                    crawlId: '1',
+                    message: '上海市普陀区金沙江路 1518 弄',
+                    targetUrl: 'http://www.bilibili.com',
+                    request: `
+                    {
+                        "id": 78345,
+                        "name": "Example User",
+                        "email": "example.user@example.com",
+                        "age": 28,
+                        "tags": ["developer", "front-end", "vuejs"],
+                        "isActive": true
+                    }`,
+                    requestTime: '2024-02-21 15:56:32',
+                }, {
+                    crawlId: '1',
+                    message: '上海市普陀区金沙江路 1518 弄',
+                    targetUrl: 'http://www.bilibili.com',
+                    request: `
+                    {
+                        "id": 78345,
+                        "name": "Example User",
+                        "email": "example.user@example.com",
+                        "age": 28,
+                        "tags": ["developer", "front-end", "vuejs"],
+                        "isActive": true
+                    }`,
+                    requestTime: '2024-02-21 15:56:32',
+                }, {
+                    crawlId: '1',
+                    message: '上海市普陀区金沙江路 1518 弄',
+                    targetUrl: 'http://www.bilibili.com',
+                    request: `
+                    {
+                        "id": 78345,
+                        "name": "Example User",
+                        "email": "example.user@example.com",
+                        "age": 28,
+                        "tags": ["developer", "front-end", "vuejs"],
+                        "isActive": true
+                    }`,
+                    requestTime: '2024-02-21 15:56:32',
+                }, {
+                    crawlId: '1',
+                    message: '上海市普陀区金沙江路 1518 弄',
+                    targetUrl: 'http://www.bilibili.com',
+                    request: `
+                    {
+                        "id": 78345,
+                        "name": "Example User",
+                        "email": "example.user@example.com",
+                        "age": 28,
+                        "tags": ["developer", "front-end", "vuejs"],
+                        "isActive": true
+                    }`,
+                    requestTime: '2024-02-21 15:56:32',
+                },
+            ],
+
+            crawlFailNum: 64,
         }
     },
     mounted() {
-        this.initEcharts()
+        this.initUserVideoAnalyseCharts()
+        this.initCrawlSuccessFailCharts()
     },
     methods: {
-        initEcharts() {
+        initUserVideoAnalyseCharts() {
             var leftChart = this.$echarts.init(document.getElementById('left-chart'))
             var option = {
                 title: {
@@ -234,7 +377,131 @@ export default {
                 message: '柱状图切换时间范围',
                 type: 'success'
             });
-        }
+        },
+
+        crawlDetailLogJump() {
+            this.$message({
+                message: '抓取成功失败日志详情',
+                type: 'success'
+            });
+        },
+
+        initCrawlSuccessFailCharts() {
+            var leftPieChart = this.$echarts.init(document.getElementById('left-pie-chart'))
+            var option = {
+                title: {
+                    text: '抓取成功失败率',
+                    left: 'center',
+                    textStyle: {
+                        color: '#92A0B1',
+                        fontSize: 15,
+                        fontWeight: 'bold'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                series: [
+                    {
+                        name: 'Access From',
+                        type: 'pie',
+                        radius: '95%',
+                        data: [
+                            { value: 1048, name: 'Search Engine' },
+                            { value: 735, name: 'Direct' },
+                            { value: 580, name: 'Email' },
+                            { value: 484, name: 'Union Ads' },
+                            { value: 300, name: 'Video Ads' }
+                        ],
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    show: false
+                                },
+                                labelLine: {
+                                    show: false
+                                }
+                            },
+
+                        },
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+            window.onresize = leftPieChart.resize;
+            leftPieChart.setOption(option);
+
+            var rightBarChart = this.$echarts.init(document.getElementById('right-bar-chart'))
+            var option = {
+                title: {
+                    text: '抓取成功失败数量',
+                    left: 'center',
+                    textStyle: {
+                        color: '#92A0B1',
+                        fontSize: 15,
+                        fontWeight: 'bold'
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: [
+                        '2024-12-01',
+                        '2024-12-02',
+                        '2024-12-03',
+                        '2024-12-04',
+                        '2024-12-05',
+                        '2024-12-06',
+                        '2024-12-07',
+                        '2024-12-08',
+                        '2024-12-09',
+                        '2024-12-10',
+                        '2024-12-11',
+                        '2024-12-12',
+                        '2024-12-13',
+                        '2024-12-14',
+                    ],
+                    axisLabel: {
+                        rotate: 75,
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    splitLine: {
+                        show: false
+                    }
+                },
+                series: [
+                    {
+                        data: [
+                            { value: 120, itemStyle: { color: '#3EAAD1' } },
+                            { value: 200, itemStyle: { color: '#3EAAD1' } },
+                            { value: 150, itemStyle: { color: '#3EAAD1' } },
+                            { value: 80, itemStyle: { color: '#3EAAD1' } },
+                            { value: 70, itemStyle: { color: '#3EAAD1' } },
+                            { value: 110, itemStyle: { color: '#3EAAD1' } },
+                            { value: 130, itemStyle: { color: '#3EAAD1' } },
+                            { value: 120, itemStyle: { color: '#3EAAD1' } },
+                            { value: 200, itemStyle: { color: '#3EAAD1' } },
+                            { value: 150, itemStyle: { color: '#3EAAD1' } },
+                            { value: 80, itemStyle: { color: '#3EAAD1' } },
+                            { value: 70, itemStyle: { color: '#3EAAD1' } },
+                            { value: 110, itemStyle: { color: '#3EAAD1' } },
+                            { value: 130, itemStyle: { color: '#3EAAD1' } },
+                        ],
+                        type: 'bar',
+                        barWidth: '5%',
+                    }
+                ]
+            };
+            window.onresize = rightBarChart.resize;
+            rightBarChart.setOption(option);
+        },
     }
 }
 </script>
@@ -407,13 +674,74 @@ export default {
 
 .crawl-success-fail-chart-table-block {
     width: 100%;
-    height: 320px;
+    height: 420px;
 
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    margin: 0px 0px 20px 0px;
+
+    .crawl-success-fail-chart-block {
+        background-color: #303641;
+        width: 74%;
+        height: 100%;
+        border-radius: 10px;
+        box-sizing: border-box;
+        padding: 0px 10px 0px 10px;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+
+        .crawl-success-fail-chart-block-right-top-btns {
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .crawl-success-fail-pie-bar-chart-block {
+            width: 100%;
+            height: 90%;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+
+    .crawl-success-fail-table-block {
+        background-color: #303641;
+        width: 25%;
+        height: 100%;
+        border-radius: 10px;
+        box-sizing: border-box;
+        padding: 0px 10px 0px 10px;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+
+        .crawl-success-fail-table-block-right-top-btns {
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .crawl-success-fail-table {
+            width: 100%;
+            height: 90%;
+        }
+    }
 }
 
 #left-chart {
@@ -424,5 +752,15 @@ export default {
 #right-chart {
     width: 100%;
     height: 90%;
+}
+
+#left-pie-chart {
+    width: 20%;
+    height: 100%;
+}
+
+#right-bar-chart {
+    width: 80%;
+    height: 95%;
 }
 </style>

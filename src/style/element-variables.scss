@@ -37,5 +37,10 @@ $--card-border-color: #303641;
 $--card-border-radius: 10px;
 $--card-padding: 10px;
 
+$--datepicker-font-color: #92A0B1;
+$--datepicker-border-color: #413730;
+$--datepicker-inrange-background-color: #303641;
+$--datepicker-inrange-hover-background-color: #303641;
+
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import "~element-ui/packages/theme-chalk/src/index";
