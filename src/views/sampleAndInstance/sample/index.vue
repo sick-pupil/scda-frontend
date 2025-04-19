@@ -1,7 +1,7 @@
 <template>
     <div class="sample">
         <div class="search-block">
-            <el-form class="search-input-block" label-width="auto" size="mini">
+            <el-form class="search-input-block" size="mini" :inline="true">
                 <el-form-item label="名称">
                     <el-input></el-input>
                 </el-form-item>
