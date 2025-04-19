@@ -1,5 +1,17 @@
+.el-col {
+    color: #92A0B1;
+}
+
 .el-dialog__title {
     color: #A5ADBC;
+}
+
+.el-table {
+    background-color: #303641;
+}
+
+.el-table tr {
+    background-color: #303641;
 }
 
 .el-table .el-table__body-wrapper .el-table__cell {
@@ -28,6 +40,10 @@
 .el-pagination .btn-next {
     background-color: #303641 !important;
     color: #A5ADBC !important;
+}
+
+.el-pagination__total {
+    color: #A5ADBC;
 }
 
 .el-dropdown-menu {
@@ -114,3 +130,12 @@
 .el-date-range-picker .el-picker-panel__icon-btn {
     color: #3EAAD1;
 }
+
+.el-form .el-form-item {
+    margin: 5px 10px 5px 10px;
+}
+
+.el-form .el-form-item .el-form-item__label {
+    color: #92A0B1;
+}
+
