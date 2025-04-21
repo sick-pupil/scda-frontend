@@ -42,5 +42,10 @@ $--datepicker-border-color: #413730;
 $--datepicker-inrange-background-color: #303641;
 $--datepicker-inrange-hover-background-color: #303641;
 
+$--select-dropdown-background: #303641;
+$--select-option-hover-background: #2A3039;
+$--select-option-selected-hover: #2A3039;
+$--select-dropdown-empty-color: #303641;
+
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 @import "~element-ui/packages/theme-chalk/src/index";
