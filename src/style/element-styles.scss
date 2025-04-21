@@ -89,26 +89,6 @@
     &::placeholder {
         color: #FFFFFF;
     }
-
-    &::-webkit-input-placeholder {
-        /* WebKit browsers 适配谷歌 */
-        color: #FFFFFF;
-    }
-
-    &:-moz-placeholder {
-        /* Mozilla Firefox 4 to 18 适配火狐 */
-        color: #FFFFFF;
-    }
-
-    &::-moz-placeholder {
-        /* Mozilla Firefox 19+ 适配火狐 */
-        color: #FFFFFF;
-    }
-
-    &:-ms-input-placeholder {
-        /* Internet Explorer 10+  适配ie*/
-        color: #FFFFFF;
-    }
 }
 
 .el-date-editor .el-range-separator {
