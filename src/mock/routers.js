@@ -90,7 +90,7 @@ export default [
                 component: () => import('@/views/runtimeMonitor/index.vue'),
             },
             {
-                //IP代理池
+                //IP代理池日志
                 path: 'ipAgent',
                 name: 'ipAgent',
                 component: () => import('@/views/ipAgent/index.vue'),
