@@ -7,6 +7,28 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = defineConfig({
+
+    pages: {
+        spider: {
+            entry: 'src/pages/spider/main.js',
+            template: 'public/spider.html',
+            filename: 'spider.html',
+            title: '爬虫管理'
+        },
+        bi: {
+            entry: 'src/pages/bi/main.js',
+            template: 'public/bi.html',
+            filename: 'bi.html',
+            title: 'BI报表'
+        },
+        system: {
+            entry: 'src/pages/system/main.js',
+            template: 'public/system.html',
+            filename: 'system.html',
+            title: '系统管理'
+        }
+    },
+
     //强制编译依赖模块
     // transpileDependencies: true,
     //开启环境的sourceMap还原混淆压缩代码至源代码
@@ -102,12 +124,36 @@ module.exports = defineConfig({
             }]);
 
         config
-            .plugin('html') // 定位到默认的 html-webpack-plugin 插件
+            .plugin('html-spider') // 定位到默认的 html-webpack-plugin 插件
             .tap((args) => {
                 // 自定义插件选项
                 args[0].title = process.env.APP_TITLE
                 args[0].meta = { description: process.env.APP_DESCRIPTION }
-                args[0].template = './public/index.html'
+                args[0].template = './public/spider.html'
+                args[0].inject = true
+                args[0].favicon = './public/favicon.ico'
+                return args;
+            });
+
+        config
+            .plugin('html-bi') // 定位到默认的 html-webpack-plugin 插件
+            .tap((args) => {
+                // 自定义插件选项
+                args[0].title = process.env.APP_TITLE
+                args[0].meta = { description: process.env.APP_DESCRIPTION }
+                args[0].template = './public/bi.html'
+                args[0].inject = true
+                args[0].favicon = './public/favicon.ico'
+                return args;
+            });
+
+        config
+            .plugin('html-system') // 定位到默认的 html-webpack-plugin 插件
+            .tap((args) => {
+                // 自定义插件选项
+                args[0].title = process.env.APP_TITLE
+                args[0].meta = { description: process.env.APP_DESCRIPTION }
+                args[0].template = './public/system.html'
                 args[0].inject = true
                 args[0].favicon = './public/favicon.ico'
                 return args;

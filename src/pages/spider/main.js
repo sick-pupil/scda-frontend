@@ -1,13 +1,13 @@
 import Vue from 'vue'
-import App from '@/App.vue'
-import router from '@/router'
-import store from '@/store'
+import App from '@/pages/spider/App.vue'
+import router from '@/pages/spider/router'
+import store from '@/pages/spider/store'
 import ElementUI from 'element-ui'
 import * as echarts from 'echarts';
 
 
-import '@/style/element-variables.scss'
-import '@/style/element-styles.scss'
+import '@/pages/spider/style/element-variables.scss'
+import '@/pages/spider/style/element-styles.scss'
 
 Vue.config.devtools = true;
 

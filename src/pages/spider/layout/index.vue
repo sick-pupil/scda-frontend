@@ -11,7 +11,8 @@
 
                     <el-menu class="layout-header-menu-h-menu" :default-active="activeMenuIndex" mode="horizontal"
                         background-color="#303641" text-color="#92A0B1" active-text-color="#FFFFFF">
-                        <el-menu-item class="layout-header-menu-h-menu-item" index="1">BiliBili-BI</el-menu-item>
+                        <el-menu-item class="layout-header-menu-h-menu-item" index="1"
+                            @click="goToPage('spider')">BiliBili-BI</el-menu-item>
                         <el-menu-item class="layout-header-menu-h-menu-item" index="2">爬虫管理</el-menu-item>
                         <el-menu-item class="layout-header-menu-h-menu-item" index="3">基础管理</el-menu-item>
                     </el-menu>
@@ -29,8 +30,9 @@
             </el-header>
             <el-container>
                 <el-aside width="210px">
-                    <el-menu class="layout-sider-menu-v-menu" :default-active="activeMenuIndex" background-color="#303641"
-                        text-color="#92A0B1" active-text-color="#FFFFFF" :default-openeds="layoutSiderMenuOpenStatus">
+                    <el-menu class="layout-sider-menu-v-menu" :default-active="activeMenuIndex"
+                        background-color="#303641" text-color="#92A0B1" active-text-color="#FFFFFF"
+                        :default-openeds="layoutSiderMenuOpenStatus">
 
                         <el-menu-item index="1">
                             <el-image class="layout-sider-menu-icon" :src="dashboardMenuImgSrc" />
@@ -223,19 +225,19 @@
         </el-dialog>
     </div>
 </template>
-  
+
 <script>
 export default {
     data() {
         return {
             activeMenuIndex: '1',
 
-            layoutLogoImgSrc: require('@/assets/logo.png'),
-            noticeImgSrc: require('@/assets/layout/notice.svg'),
-            cpuImgSrc: require('@/assets/layout/cpu.svg'),
-            memoryImgSrc: require('@/assets/layout/memory.svg'),
-            diskImgSrc: require('@/assets/layout/disk.svg'),
-            userImgSrc: require('@/assets/layout/user.svg'),
+            layoutLogoImgSrc: require('@/pages/spider/assets/logo.png'),
+            noticeImgSrc: require('@/pages/spider/assets/layout/notice.svg'),
+            cpuImgSrc: require('@/pages/spider/assets/layout/cpu.svg'),
+            memoryImgSrc: require('@/pages/spider/assets/layout/memory.svg'),
+            diskImgSrc: require('@/pages/spider/assets/layout/disk.svg'),
+            userImgSrc: require('@/pages/spider/assets/layout/user.svg'),
 
             noticeDialogVisible: false,
             cpuDialogVisible: false,
@@ -284,25 +286,25 @@ export default {
                 notUsedSize: 7,
             },
 
-            dashboardMenuImgSrc: require('@/assets/menu-icon/dashboard.png'),
+            dashboardMenuImgSrc: require('@/pages/spider/assets/menu-icon/dashboard.png'),
 
-            sampleAndInstanceMenuImgSrc: require('@/assets/menu-icon/sampleAndInstance.png'),
-            sampleMenuImgSrc: require('@/assets/menu-icon/sample.png'),
-            instanceMenuImgSrc: require('@/assets/menu-icon/instance.png'),
-            stepMenuImgSrc: require('@/assets/menu-icon/step.png'),
+            sampleAndInstanceMenuImgSrc: require('@/pages/spider/assets/menu-icon/sampleAndInstance.png'),
+            sampleMenuImgSrc: require('@/pages/spider/assets/menu-icon/sample.png'),
+            instanceMenuImgSrc: require('@/pages/spider/assets/menu-icon/instance.png'),
+            stepMenuImgSrc: require('@/pages/spider/assets/menu-icon/step.png'),
 
-            instanceDataMenuImgSrc: require('@/assets/menu-icon/instanceData.png'),
-            bilibiliMenuImgSrc: require('@/assets/menu-icon/bilibili.png'),
-            videoMenuImgSrc: require('@/assets/menu-icon/video.png'),
-            commentMenuImgSrc: require('@/assets/menu-icon/comment.png'),
-            danmuMenuImgSrc: require('@/assets/menu-icon/danmu.png'),
-            userMenuImgSrc: require('@/assets/menu-icon/user.png'),
+            instanceDataMenuImgSrc: require('@/pages/spider/assets/menu-icon/instanceData.png'),
+            bilibiliMenuImgSrc: require('@/pages/spider/assets/menu-icon/bilibili.png'),
+            videoMenuImgSrc: require('@/pages/spider/assets/menu-icon/video.png'),
+            commentMenuImgSrc: require('@/pages/spider/assets/menu-icon/comment.png'),
+            danmuMenuImgSrc: require('@/pages/spider/assets/menu-icon/danmu.png'),
+            userMenuImgSrc: require('@/pages/spider/assets/menu-icon/user.png'),
 
-            runtimeLogMenuImgSrc: require('@/assets/menu-icon/runtimeLog.png'),
-            runtimeMonitorMenuImgSrc: require('@/assets/menu-icon/runtimeMonitor.png'),
-            ipAgentMenuImgSrc: require('@/assets/menu-icon/ipAgent.png'),
-            userAgentMenuImgSrc: require('@/assets/menu-icon/userAgent.png'),
-            notificationLogMenuImgSrc: require('@/assets/menu-icon/notificationLog.png'),
+            runtimeLogMenuImgSrc: require('@/pages/spider/assets/menu-icon/runtimeLog.png'),
+            runtimeMonitorMenuImgSrc: require('@/pages/spider/assets/menu-icon/runtimeMonitor.png'),
+            ipAgentMenuImgSrc: require('@/pages/spider/assets/menu-icon/ipAgent.png'),
+            userAgentMenuImgSrc: require('@/pages/spider/assets/menu-icon/userAgent.png'),
+            notificationLogMenuImgSrc: require('@/pages/spider/assets/menu-icon/notificationLog.png'),
 
             layoutSiderMenuOpenStatus: ['2', '3', '3-1',]
         }
@@ -329,11 +331,15 @@ export default {
         },
         diskProgressFormat(num) {
             return `${num}GB`;
+        },
+
+        goToPage(page) {
+            window.location.href = `/${page}.html`; // 直接跳转到对应的 HTML 页面
         }
     }
 }
 </script>
-  
+
 <style lang="scss" scoped>
 .layout {
     height: 100%;
@@ -437,4 +443,3 @@ export default {
     color: #A5ADBC;
 }
 </style>
-  

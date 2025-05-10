@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import mockRouters from '@/mock/routers'
+import mockRouters from '@/pages/spider/mock/routers'
 
 Vue.use(Router)
 
 const router = new Router({
     mode: 'history', // 去掉url中的#
+    base: '/spider',
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
             // 返回保存的滚动位置（比如点击浏览器后退按钮时）
