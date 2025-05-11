@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import App from '@/pages/bi/App.vue'
+import App from '@bi/App.vue'
 
 
-import '@/pages/bi/style/element-variables.scss'
-import '@/pages/bi/style/element-styles.scss'
+import '@style/element-variables.scss'
+import '@style/element-styles.scss'
 
 Vue.config.devtools = true;
 

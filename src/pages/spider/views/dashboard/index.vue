@@ -157,14 +157,14 @@ export default {
     data() {
         return {
             activeCollapse: ['BILIBILI'],
-            videoStatisticsCardImgSrc: require('@/pages/spider/assets/dashboard/video.png'),
-            danmuStatisticsCardImgSrc: require('@/pages/spider/assets/dashboard/danmu.png'),
-            userStatisticsCardImgSrc: require('@/pages/spider/assets/dashboard/user.png'),
-            commentStatisticsCardImgSrc: require('@/pages/spider/assets/dashboard/comment.png'),
-            spiderStatisticsCardImgSrc: require('@/pages/spider/assets/dashboard/spider.png'),
-            labelStatisticsCardImgSrc: require('@/pages/spider/assets/dashboard/label.png'),
-            tickStatisticsCardImgSrc: require('@/pages/spider/assets/dashboard/tick.png'),
-            crossStatisticsCardImgSrc: require('@/pages/spider/assets/dashboard/cross.png'),
+            videoStatisticsCardImgSrc: require('@assets/spider/dashboard/video.png'),
+            danmuStatisticsCardImgSrc: require('@/assets/spider/dashboard/danmu.png'),
+            userStatisticsCardImgSrc: require('@/assets/spider/dashboard/user.png'),
+            commentStatisticsCardImgSrc: require('@/assets/spider/dashboard/comment.png'),
+            spiderStatisticsCardImgSrc: require('@/assets/spider/dashboard/spider.png'),
+            labelStatisticsCardImgSrc: require('@/assets/spider/dashboard/label.png'),
+            tickStatisticsCardImgSrc: require('@/assets/spider/dashboard/tick.png'),
+            crossStatisticsCardImgSrc: require('@/assets/spider/dashboard/cross.png'),
 
             tableData: [
                 {

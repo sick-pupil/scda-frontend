@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import mockRouters from '@/pages/spider/mock/routers'
+import mockRouters from '@spider/mock/routers'
 
 Vue.use(Router)
 

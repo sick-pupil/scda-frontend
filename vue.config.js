@@ -69,6 +69,13 @@ module.exports = defineConfig({
 
         config.resolve.alias
             .set('@', resolve('src'))
+            .set('@assets', resolve('src/assets'))
+            .set('@components', resolve('src/components'))
+            .set('@layout', resolve('src/layout'))
+            .set('@style', resolve('src/style'))
+            .set('@spider', resolve('src/pages/spider'))
+            .set('@bi', resolve('src/pages/bi'))
+            .set('@system', resolve('src/pages/system'))
 
 
         // config.module
